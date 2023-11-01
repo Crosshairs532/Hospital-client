@@ -23,7 +23,7 @@ const Login = () => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        const users = { email, password };
+        // const users = { email, password };
         // console.log(email, password);
         signIn(email, password)
             .then(res => goTo('/'))
@@ -57,7 +57,7 @@ const Login = () => {
             .then(res => {
                 alert('sign in')
             })
-            .catch()
+            .catch(er => console.log(er))
 
     }
 

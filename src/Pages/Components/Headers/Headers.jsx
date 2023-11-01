@@ -1,13 +1,25 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
 
 const Headers = () => {
-    const { user, logout } = useContext(AuthContext)
+    const { user, logout, loading } = useContext(AuthContext)
+    const [CUser, setUser] = useState(null);
+
     console.log(user);
     const goTo = useNavigate();
     console.log(user);
+    useEffect(() => {
+        fetch('http://localhost:3000/user')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const Cuser = data.filter(i => i.email == user?.email);
+                setUser(Cuser)
+            })
+    }, [user?.email])
+    // console.log(CUser[0]?.name, "headdddd");
     const handleLogout = () => {
         logout()
             .then(res => {
@@ -24,7 +36,6 @@ const Headers = () => {
             .catch(er => console.log(er))
 
     }
-
     const nav_items =
         <>
             <li><NavLink to='/'>Home</NavLink></li>
@@ -59,7 +70,7 @@ const Headers = () => {
                         }
                     </ul>
                 </div>
-                <div className="navbar-end">
+                {<div className="navbar-end">
                     {!user ? <><Link to='/login' className="btn btn-outline btn-error">Login </Link><Link to='/register' className="btn btn-outline btn-error">Register Now</Link></> :
 
 
@@ -67,13 +78,14 @@ const Headers = () => {
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full">
-                                        <img src={user.photoURL} />
+                                        <img src={CUser[0]?.photo} />
+                                        {/* <img src={CUser[0]?.photo} /> */}
                                     </div>
                                 </label>
                                 <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                     <li>
                                         <a className="justify-between">
-                                            Name: {user.displayName}
+                                            Name: {CUser[0]?.name}
 
                                         </a>
                                     </li>
@@ -88,7 +100,7 @@ const Headers = () => {
 
 
 
-                </div>
+                </div>}
             </div>
 
         </div>
