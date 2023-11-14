@@ -12,7 +12,7 @@ import auth from "../../../../firebase/firebase.config";
 
 const Profile = () => {
     const goTo = useNavigate();
-    const passref = useRef(null)
+    const passref = useRef(null);
     const { user } = useContext(AuthContext);
     console.log(user?.email);
     const { data, isLoading, isFetching } =
@@ -25,18 +25,18 @@ const Profile = () => {
         })
     console.log(data, user, isLoading, isFetching, "emaasfjha");
 
-    if (isLoading) {
-        return <Triangle
-            height="80"
-            width="80"
-            color="#4fa94d"
-            ariaLabel="triangle-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-        />
-    }
-    else if (!isLoading && data) {
+    // if (isLoading) {
+    //     return <Triangle
+    //         height="80"
+    //         width="80"
+    //         color="#4fa94d"
+    //         ariaLabel="triangle-loading"
+    //         wrapperStyle={{}}
+    //         wrapperClassName=""
+    //         visible={true}
+    //     />
+    // }
+    if (!isLoading && data) {
         const { _id, name, email, photo } = data[0];
         console.log(_id);
         const updatePass = () => {
@@ -110,13 +110,8 @@ const Profile = () => {
                             // goTo('/login')
                         })
                         .catch(er => console.log(er))
-
-
                 }
             })
-
-
-
         }
         return (
             <>

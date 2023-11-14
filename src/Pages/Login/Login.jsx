@@ -79,6 +79,19 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 1500
                 })
+                const { displayName, photoURL, email } = res.user;
+                const Cuser = { name: displayName, photo: photoURL, email }
+                console.log(res.user, "loginnnnn")
+                fetch('http://localhost:3000/user', {
+                    method: 'POST',
+                    headers: {
+                        "content-type": 'application/json',
+                    }
+                    ,
+                    body: JSON.stringify(Cuser)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data, "login"))
             })
             .catch(er => console.log(er))
 

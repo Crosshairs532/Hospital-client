@@ -7,18 +7,18 @@ const Mainlayout = () => {
     return (
         <div>
             <Marquee gradient={true} speed={100}>
-                <h1 className=" mr-[100px]">
+                <h1 className=" text-5xl text-red-500 mr-[100px]">
                     design is on process
                 </h1> <br />
-                <h1 className=" mr-[100px]">
+                <h1 className=" text-5xl text-red-500 mr-[100px]">
                     design is on process
                 </h1>
                 <br />
-                <h1 className=" mr-[100px]">
+                <h1 className=" text-5xl text-red-500 mr-[100px]">
                     design is on process
                 </h1>
                 <br />
-                <h1 className=" mr-[100px]">
+                <h1 className=" text-5xl text-red-500 mr-[100px]">
                     design is on process
                 </h1>
 

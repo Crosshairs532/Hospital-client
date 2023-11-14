@@ -5,6 +5,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Profile from "../Pages/Components/Profile/Profile";
 import PrivateRoute from "../PrivateRoute";
+import Appointment from "../Pages/Appointment/Appointment";
+import Doctor from "../Pages/Doctor";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: '/appointment',
+                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
+            },
+            {
+                path: '/doctors',
+                element: <PrivateRoute><Doctor></Doctor></PrivateRoute>
             }
         ]
     },

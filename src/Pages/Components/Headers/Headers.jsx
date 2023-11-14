@@ -9,6 +9,7 @@ const Headers = () => {
     const [CUser, setUser] = useState(null);
 
     console.log(user);
+    console.log(CUser);
     const goTo = useNavigate();
 
     useEffect(() => {
