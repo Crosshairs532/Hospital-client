@@ -119,7 +119,7 @@ const Appointment = () => {
                                             </div>
 
                                             <div className="md:col-span-3 ">
-                                                <label htmlFor="Ddpt" className=" text-xl font-bold">Department:</label> <br />
+                                                <label htmlFor="Ddpt" className=" text-xl font-bold">Speciality:</label> <br />
                                                 <select name="Ddpt" id="Ddpt" className=" bg-gray-50 h-10 border mt-1 rounded px-4 w-full">
                                                     <option >Heart Deasease</option>
                                                     <option >Dental </option>
