@@ -7,6 +7,7 @@ import Profile from "../Pages/Components/Profile/Profile";
 import PrivateRoute from "../PrivateRoute";
 import Appointment from "../Pages/Appointment/Appointment";
 import Doctor from "../Pages/Doctor";
+import Admission from "../Pages/Admission";
 
 const router = createBrowserRouter([
     {
@@ -39,7 +40,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/doctors',
-                element: <PrivateRoute><Doctor></Doctor></PrivateRoute>
+                element: <Doctor></Doctor>
+            },
+            {
+                path: '/admission',
+                element: <Admission></Admission>
             }
         ]
     },

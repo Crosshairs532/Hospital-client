@@ -45,7 +45,8 @@ const Headers = () => {
             <li className=" text-xl font-bold"><NavLink to='/'>Home</NavLink></li>
             <li className=" text-xl font-bold"><NavLink to='/doctors'>Doctors</NavLink></li>
             <li className=" text-xl font-bold"><NavLink to='/appointment'>Appointment</NavLink></li>
-            <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li>
+            {/* <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li> */}
+            <li className=" text-xl font-bold"><NavLink to='/admission'>Admission</NavLink></li>
 
 
 
