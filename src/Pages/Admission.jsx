@@ -161,7 +161,7 @@ const Admission = () => {
                                                     </div>
                                                     <div>
                                                         <label htmlFor="Pemail" className=" text-sm font-bold">Patient Email:</label>
-                                                        <input type="Pemail" name="Pemail" id="Pemail" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Enter Your Email.." />
+                                                        <input type="Pemail" defaultValue={user?.email} name="Pemail" id="Pemail" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="Enter Your Email.." />
 
 
                                                     </div>

@@ -1,9 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
 import Lottie from "lottie-react";
 import logo from '../../../../public/logo.json'
+import { Triangle } from "react-loader-spinner";
 const Headers = () => {
     const { user, logout, loading } = useContext(AuthContext)
     const [CUser, setUser] = useState(null);
@@ -46,11 +48,28 @@ const Headers = () => {
             <li className=" text-xl font-bold"><NavLink to='/doctors'>Doctors</NavLink></li>
             <li className=" text-xl font-bold"><NavLink to='/appointment'>Appointment</NavLink></li>
             {/* <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li> */}
-            <li className=" text-xl font-bold"><NavLink to='/admission'>Admission</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/admission'>Admission form</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/test'>Schedule for Test</NavLink></li>
 
 
 
         </>
+
+
+    if (loading) {
+        return <div className=" flex h-[100vh] justify-center items-center">
+            <Triangle
+
+                height="150"
+                width="150"
+                color="#4fa94d"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+            />
+        </div>
+    }
     return (
         <div>
             <div className="navbar bg-green-600">
@@ -78,7 +97,12 @@ const Headers = () => {
                     </ul>
                 </div>
                 {<div className="navbar-end">
-                    {!user ? <><Link to='/login' className="btn btn-outline btn-error">Login </Link><Link to='/register' className="btn btn-outline btn-error">Register Now</Link></> :
+                    {!CUser[0] ?
+                        <>
+
+                            <Link to='/login' className="btn btn-outline btn-error">Login </Link>
+                            <Link to='/register' className="btn btn-outline btn-error">Register Now</Link>
+                        </> :
 
 
                         <>
@@ -100,6 +124,8 @@ const Headers = () => {
                                     <li>                    <button onClick={handleLogout} >Logout</button>
                                     </li>
                                     <li><Link>patient diagnosis report</Link></li>
+                                    <li><Link to='/applist'>Appointment List</Link></li>
+
                                 </ul>
                             </div>
                         </>

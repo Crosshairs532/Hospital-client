@@ -3,8 +3,6 @@
 
 import { useContext, useState } from "react";
 import Swal from "sweetalert2";
-
-// import Datepicker from '../pages/Datepicker'
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // import { Helmet } from "react-helmet-async";
@@ -30,6 +28,7 @@ const Appointment = () => {
         const Pstatus = e.target.Pstatus.value;
         const Pemail = e.target.Pemail.value;
         const ampm = e.target.ampm.value;
+        const ATime = value
         // const postdate1 = postdate.toISOString().split('T')[0];
         const appointment = appointmentTime.toISOString().split('T')[0];
         const patient_app_detail = {
@@ -44,6 +43,7 @@ const Appointment = () => {
             Pemail,
             ampm,
             appointment,
+            ATime,
             status: "pending"
         }
         console.log(patient_app_detail);
