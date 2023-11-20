@@ -11,33 +11,33 @@ import AdminLogin from "../Pages/Admin/Login/AdminLogin";
 import AdminHome from "../Pages/Admin/Home/AdminHome";
 
 const router = createBrowserRouter([
-    {
-        path:'/admin/',
+    // {
+    //     path:'/admin/',
 
-        children:[
-            {
-                path:'login',
-                element:<AdminLogin></AdminLogin>
-            },
-            {
-                path:'home',
-                element:<AdminHome></AdminHome>
-            }
-        ]
-    },
-    {
-        path:'/doctor/',
-        children:[
-            {
-                path:'login',
-                element:<DoctorLogin></DoctorLogin>
-            },
-            {
-                path:'home',
-                element:<DoctorHome></DoctorHome>
-            }
-        ]
-    },
+    //     children:[
+    //         {
+    //             path:'login',
+    //             element:<AdminLogin></AdminLogin>
+    //         },
+    //         {
+    //             path:'home',
+    //             element:<AdminHome></AdminHome>
+    //         }
+    //     ]
+    // },
+    // {
+    //     path:'/doctor/',
+    //     children:[
+    //         {
+    //             path:'login',
+    //             element:<DoctorLogin></DoctorLogin>
+    //         },
+    //         {
+    //             path:'home',
+    //             element:<DoctorHome></DoctorHome>
+    //         }
+    //     ]
+    // },
 
     {
         path: '/',
@@ -55,7 +55,6 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             
-            ,
             {
                 path: '/register',
                 element: <Register></Register>
