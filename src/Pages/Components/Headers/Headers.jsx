@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 
 const Headers = () => {
     const { user, logout, loading } = useContext(AuthContext)
-    const [CUser, setUser] = useState(null);
+    const [CUser, setUser] = useState({});
 
     console.log(user);
     const goTo = useNavigate();
