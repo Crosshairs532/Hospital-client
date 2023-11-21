@@ -9,7 +9,6 @@ import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from "../../Authprovider/Authprovider";
 import { FacebookAuthProvider, GoogleAuthProvider, sendPasswordResetEmail, signInWithPopup } from "firebase/auth";
 import auth from "../../../firebase/firebase.config";
-import {onAuthStateChanged} from "firebase/auth"
 import Swal from "sweetalert2";
 
 
@@ -22,20 +21,16 @@ const Login = () => {
     const goTo = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
+        const role = e.target.role.value;
         const email = e.target.email.value;
         const password = e.target.password.value;
-        
-        onAuthStateChanged(auth,(user)=>{
-            console.log(user);
-        })
         // const users = { email, password };
         // console.log(email, password);
         signIn(email, password)
             .then(res => {
-                console.log(res.user);
+                console.log(res);
                 goTo('/')})
             .catch(er => console.log(er))
-            
     }
 
     // const signInWithgoogle = () => {
@@ -94,13 +89,23 @@ const Login = () => {
         <div>
             <div className="hero  min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
-                    <div className="w-1/2 mr-12">
-                        <img src={img3} alt="" />
-                    </div>
+                
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <h1 className="text-3xl text-center font-bold">Login</h1>
+                            <h1 className="text-3xl text-center font-bold">Organization Login</h1>
                             <form onSubmit={handleSubmit}>
+                                <div class="form-control mt-5 ">
+                                <div >
+                                    <select  name="role" id="role" className=" input input-bordered w-full items-center gap-3" required>
+                                        <option>Select Role</option>
+                                        <option value='admin'>Admin</option>
+                                        <option value='doctor'>Doctor</option>
+                                        <option value='pharmacist'>Pharmacist</option>
+                                    </select>
+                                            
+                                </div>
+                                    
+                                </div>
                                 <div className="form-control mt-2">
 
                                     <div className=" flex items-center gap-3">
@@ -122,19 +127,7 @@ const Login = () => {
                                     <input className="btn btn-primary" type="submit" value="Login" />
                                 </div>
                             </form>
-                            <p className='my-4 text-center'>New here?<Link className='text-orange-600 font-bold' to="/register">Sign Up</Link> </p>
-                           
-                            <p>Login with </p>
-                            <div className=" flex gap-4">
-                                <h1 onClick={() => handlesignInwithpopup(signInWithgoogle)} className=" text-4xl text-sky-800"><FcGoogle /></h1>
-                                <h1 onClick={() => handlesignInwithpopup(signInWithfacebook)} className=" text-4xl"><BsFacebook /></h1>
-                                {/* <h1 onClick={signInWithgoogle} className=" text-4xl text-sky-800"><FcGoogle /></h1>
-                                <h1 onClick={signInWithFacebook} className=" text-4xl"><BsFacebook /></h1> */}
-
-                            </div> 
-                            <div className="flex gap-4">
-                                <p className="font-bold text-center"><Link to="/orgLogin">Organization Login</Link> </p>
-                            </div>
+                          
                            
                         </div>
                     </div>

@@ -123,6 +123,10 @@ const Register = () => {
                                                     <input type="submit" className="bg-[coral] hover:bg-[#a14828] text-center text-white font-bold py-2 px-4 rounded" value="Register Now" />
                                                 </div>
                                             </div>
+                                            <div className="md:col-span-3 text-left font-oxanium">
+                                                <p className='my-4 text-center'>Already have an account?<Link className='text-orange-600 font-bold' to="/login">Log In</Link> </p>
+                                            
+                                            </div>
 
                                         </div>
                                     </form>
