@@ -65,7 +65,13 @@ const Register = () => {
                     user.reload().then(() => {
                         if (user.emailVerified) {
                             clearInterval(checkVerificationInterval);
-
+                            Swal.fire({
+                                position: 'top-end',
+                                icon: 'success',
+                                title: 'Email Verifed',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
                             goTo('/')
                         }
                     });
@@ -102,7 +108,7 @@ const Register = () => {
                                         <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                             <div className="md:col-span-2 font-oxanium">
                                                 <label htmlFor="Cname" className=" font-oxanium">Your Name:</label>
-                                                <input type="text" name="name" id="name" required placeholder=" car name..." className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
+                                                <input type="text" name="name" id="name" required placeholder=" Your name..." className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" />
                                             </div>
                                             <div className="md:col-span-3 font-oxanium">
                                                 <label htmlFor="Cphoto" className=" font-oxanium"> photo url:</label>

@@ -12,7 +12,7 @@ import auth from "../../../../firebase/firebase.config";
 
 const Profile = () => {
     const goTo = useNavigate();
-    const passref = useRef(null)
+    const passref = useRef(null);
     const { user } = useContext(AuthContext);
     console.log(user?.email);
     const { data, isLoading, isFetching } =
@@ -25,18 +25,18 @@ const Profile = () => {
         })
     console.log(data, user, isLoading, isFetching, "emaasfjha");
 
-    if (isLoading) {
-        return <Triangle
-            height="80"
-            width="80"
-            color="#4fa94d"
-            ariaLabel="triangle-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-        />
-    }
-    else if (!isLoading && data) {
+    // if (isLoading) {
+    //     return <Triangle
+    //         height="80"
+    //         width="80"
+    //         color="#4fa94d"
+    //         ariaLabel="triangle-loading"
+    //         wrapperStyle={{}}
+    //         wrapperClassName=""
+    //         visible={true}
+    //     />
+    // }
+    if (!isLoading && data) {
         const { _id, name, email, photo } = data[0];
         console.log(_id);
         const updatePass = () => {
@@ -110,13 +110,8 @@ const Profile = () => {
                             // goTo('/login')
                         })
                         .catch(er => console.log(er))
-
-
                 }
             })
-
-
-
         }
         return (
             <>
@@ -131,7 +126,7 @@ const Profile = () => {
                                         <div className=" lg:grid-cols-1">
                                             <img src={data[0]?.photo} alt="" />
                                             <div className="md:col-span-3 font-oxanium">
-                                                <button htmlFor="password" className=" font-oxanium outline-1 outline-red-700" onClick={updatePass} >Update Password</button>
+                                                <button htmlFor="password" className=" font-oxanium btn outline-1 outline-red-700" onClick={updatePass} >Update Password</button>
 
                                                 <input type="password" name="password" ref={passref} id="pass" className="h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder=" Enter Your password" required />
                                             </div>
@@ -178,5 +173,3 @@ const Profile = () => {
 };
 
 export default Profile;
-import { useState } from "react";
-

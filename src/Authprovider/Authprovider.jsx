@@ -43,7 +43,8 @@ const Authprovider = ({ children }) => {
         return () => unSubscriber();
     }, [])
 
-    const authInfo = { signIn, signInWithfacebook, signInWithgoogle, logout, user, createUser, loading }
+
+    const authInfo = { signIn, signInWithfacebook, signInWithgoogle, logout, user, createUser, loading, setLoading }
     return (
         <div>
             <AuthContext.Provider value={authInfo}>

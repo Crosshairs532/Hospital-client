@@ -32,10 +32,24 @@ const Login = () => {
         // console.log(email, password);
         signIn(email, password)
             .then(res => {
-                console.log(res.user);
-                goTo('/')})
-            .catch(er => console.log(er))
-            
+           
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Your work has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                goTo('/')
+            })
+            .catch(er => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: er.message,
+                    footer: '<a href="">Why do I have this issue?</a>'
+                })
+            })
     }
 
     // const signInWithgoogle = () => {
@@ -63,7 +77,26 @@ const Login = () => {
     const handlesignInwithpopup = (googleandfacebook) => {
         googleandfacebook()
             .then(res => {
-                alert('sign in')
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: "succesfully singed in",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                const { displayName, photoURL, email } = res.user;
+                const Cuser = { name: displayName, photo: photoURL, email }
+                console.log(res.user, "loginnnnn")
+                fetch('http://localhost:3000/user', {
+                    method: 'POST',
+                    headers: {
+                        "content-type": 'application/json',
+                    }
+                    ,
+                    body: JSON.stringify(Cuser)
+                })
+                    .then(res => res.json())
+                    .then(data => console.log(data, "login"))
             })
             .catch(er => console.log(er))
 
@@ -136,9 +169,8 @@ const Login = () => {
                                 <p className="font-bold text-center"><Link to="/orgLogin">Organization Login</Link> </p>
                             </div>
                            
+                            </div>
                         </div>
-                    </div>
-
                 </div>
 
             </div>

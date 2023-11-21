@@ -10,36 +10,15 @@ import Profile from "../Pages/Components/Profile/Profile";
 import PrivateRoute from "../PrivateRoute";
 import AdminLogin from "../Pages/Admin/Login/AdminLogin";
 import AdminHome from "../Pages/Admin/Home/AdminHome";
+import Admission from "../Pages/Admission";
+import Test from "../Pages/Test/Test";
+import Appointment_list from "../Pages/Components/Appointment_List/Appointment_list";
+import Appointment from "../Pages/Appointment/Appointment";
+import Doctor from "../Pages/Doctor";
+
+
 
 const router = createBrowserRouter([
-    // {
-    //     path:'/admin/',
-
-    //     children:[
-    //         {
-    //             path:'login',
-    //             element:<AdminLogin></AdminLogin>
-    //         },
-    //         {
-    //             path:'home',
-    //             element:<AdminHome></AdminHome>
-    //         }
-    //     ]
-    // },
-    // {
-    //     path:'/doctor/',
-    //     children:[
-    //         {
-    //             path:'login',
-    //             element:<DoctorLogin></DoctorLogin>
-    //         },
-    //         {
-    //             path:'home',
-    //             element:<DoctorHome></DoctorHome>
-    //         }
-    //     ]
-    // },
-
     {
         path: '/',
         element: <Mainlayout></Mainlayout>
@@ -59,6 +38,7 @@ const router = createBrowserRouter([
                 path:'orgLogin',
                 element:<OrgLogin></OrgLogin>
             },
+            ,
             {
                 path: '/register',
                 element: <Register></Register>
@@ -66,10 +46,30 @@ const router = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+    
+            {
+                path: '/appointment',
+                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
+            },
+            {
+                path: '/doctors',
+                element: <Doctor></Doctor>
+            },
+            {
+                path: '/admission',
+                element: <PrivateRoute><Admission></Admission></PrivateRoute>
+            },
+            {
+                path: '/test',
+                element: <PrivateRoute><Test></Test></PrivateRoute>
+            },
+            {
+                path: '/applist',
+                element: <PrivateRoute><Appointment_list></Appointment_list></PrivateRoute>
             }
         ]
     },
-    
 
 ])
 export default router;

@@ -1,25 +1,32 @@
+/* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
-
+import Lottie from "lottie-react";
+import logo from '../../../../public/logo.json'
+import { Triangle } from "react-loader-spinner";
 const Headers = () => {
     const { user, logout, loading } = useContext(AuthContext)
-    const [CUser, setUser] = useState({});
+    const [CUser, setUser] = useState([]);
 
     console.log(user);
+    console.log(CUser);
     const goTo = useNavigate();
-    console.log(user);
+
     useEffect(() => {
         fetch('http://localhost:3000/user')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 const Cuser = data.filter(i => i.email == user?.email);
-                setUser(Cuser)
+                console.log(Cuser, "before setting");
+                if(Cuser)
+                    setUser(Cuser)
             })
     }, [user?.email])
     // console.log(CUser[0]?.name, "headdddd");
+    console.log(user, CUser);
     const handleLogout = () => {
         logout()
             .then(res => {
@@ -38,17 +45,35 @@ const Headers = () => {
     }
     const nav_items =
         <>
-            <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/doctors'>Doctors</NavLink></li>
-            <li><NavLink to='/appointment'>Appointment</NavLink></li>
-            <li><NavLink to='/contact'>Contact Us</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/'>Home</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/doctors'>Doctors</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/appointment'>Appointment</NavLink></li>
+            {/* <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li> */}
+            <li className=" text-xl font-bold"><NavLink to='/admission'>Admission form</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/test'>Schedule for Test</NavLink></li>
 
 
 
         </>
+
+
+    if (loading) {
+        return <div className=" flex h-[100vh] justify-center items-center">
+            <Triangle
+
+                height="150"
+                width="150"
+                color="#4fa94d"
+                ariaLabel="triangle-loading"
+                wrapperStyle={{}}
+                wrapperClassName=""
+                visible={true}
+            />
+        </div>
+    }
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-green-600">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,7 +86,9 @@ const Headers = () => {
 
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">HP</a>
+                    <div className=' w-[30%] h-20'>
+                        <Lottie className='w-full h-full' animationData={logo} loop={true}></Lottie>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -70,8 +97,13 @@ const Headers = () => {
                         }
                     </ul>
                 </div>
-                {<div className="navbar-end">
-                    {!user ? <><Link to='/login' className="btn btn-outline btn-error">Login </Link><Link to='/register' className="btn btn-outline btn-error">Register Now</Link></> :
+                <div className="navbar-end">
+                    {!CUser[0] ?
+                        <>
+
+                            <Link to='/login' className="btn btn-outline btn-error">Login </Link>
+                            <Link to='/register' className="btn btn-outline btn-error">Register Now</Link>
+                        </> :
 
 
                         <>
@@ -93,6 +125,8 @@ const Headers = () => {
                                     <li>                    <button onClick={handleLogout} >Logout</button>
                                     </li>
                                     <li><Link>patient diagnosis report</Link></li>
+                                    <li><Link to='/applist'>Appointment List</Link></li>
+
                                 </ul>
                             </div>
                         </>
@@ -100,7 +134,7 @@ const Headers = () => {
 
 
 
-                </div>}
+                </div>
             </div>
 
         </div>
