@@ -21,7 +21,7 @@ const Headers = () => {
                 console.log(data);
                 const Cuser = data.filter(i => i.email == user?.email);
                 console.log(Cuser, "before setting");
-                if(Cuser)
+                if (Cuser)
                     setUser(Cuser)
             })
     }, [user?.email])
@@ -51,6 +51,7 @@ const Headers = () => {
             {/* <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li> */}
             <li className=" text-xl font-bold"><NavLink to='/admission'>Admission form</NavLink></li>
             <li className=" text-xl font-bold"><NavLink to='/test'>Schedule for Test</NavLink></li>
+            <li className=" text-xl font-bold"><NavLink to='/pharmacy'>Pharmacy</NavLink></li>
 
 
 
