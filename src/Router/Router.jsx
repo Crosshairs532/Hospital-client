@@ -15,6 +15,7 @@ import Test from "../Pages/Test/Test";
 import Appointment_list from "../Pages/Components/Appointment_List/Appointment_list";
 import Appointment from "../Pages/Appointment/Appointment";
 import Doctor from "../Pages/Doctor";
+import Checkout from "../Pages/Pharmacy/Checkout";
 
 
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path:'orgLogin',
+                path:'/orgLogin',
                 element:<OrgLogin></OrgLogin>
             },
             ,
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             {
                 path: '/applist',
                 element: <PrivateRoute><Appointment_list></Appointment_list></PrivateRoute>
+            },
+            {
+                path:'/checkout',
+                element:<Checkout></Checkout>
             }
         ]
     },
