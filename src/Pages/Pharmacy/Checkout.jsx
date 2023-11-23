@@ -81,20 +81,21 @@ const Checkout = ()=>{
     };
 
     const onHandleCheckout = async () => {
-        setLoading(true);
-
-        const SERVER_URL =
-            process.env.REACT_APP_SERVER_URL || 'https://sslcommerz-node.herokuapp.com';
-
-        const res = await axios.post(`${SERVER_URL}/api/payment/checkout`, formData);
-
-        console.log(res.data);
-        if (res.data?.length > 30) {
-            setLoading(false);
-            window.location.replace(res.data);
-        } else {
-            alert('Checkout failed'); // eslint-disable-line no-alert
+       // setLoading(true);
+        console.log("Clicked");
+        try{
+            const res = await axios.post(`http://localhost:3000/payment`, formData);
+            console.log(res.data);
+            if (res.data?.length > 30) {
+                setLoading(false);
+                window.location.replace(res.data);
+            } else {
+                alert('Checkout failed'); // eslint-disable-line no-alert
+            }
+        }catch(err){
+            console.log(err);
         }
+        
     };
 
     useEffect(() => {
@@ -135,15 +136,7 @@ const Checkout = ()=>{
         >
             Order Summary
         </h3>
-        <CartItems
-            checkoutBtn={false}
-            customStyles={{
-                boxShadow: 'none',
-                backgroundImage: 'none',
-                background: '#f5f5f5',
-            }}
-            divStyle={{ background: '#e2e2e2' }}
-        />
+        
     </aside>
 
     <aside className={styles.checkout__checkoutForm}>

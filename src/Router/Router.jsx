@@ -16,6 +16,7 @@ import Appointment_list from "../Pages/Components/Appointment_List/Appointment_l
 import Appointment from "../Pages/Appointment/Appointment";
 import Doctor from "../Pages/Doctor";
 import Checkout from "../Pages/Pharmacy/Checkout";
+import PaymentSuccess from "../Pages/Pharmacy/PaymentSuccess";
 
 
 
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
             {
                 path:'/checkout',
                 element:<Checkout></Checkout>
+            },
+            {
+                path:'/checkout/success',
+                element:<PaymentSuccess></PaymentSuccess>
             }
         ]
     },
