@@ -1,0 +1,422 @@
+[
+    {
+        "name": "Aspirin",
+        "productionDate": "2023-01-01",
+        "expirationDate": "2024-01-01",
+        "usage": "Pain relief, anti-inflammatory",
+        "price": 5.99,
+        "components": [
+            "Acetylsalicylic acid",
+            "Inactive ingredients"
+        ],
+        "quantity": 100,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Ibuprofen",
+        "productionDate": "2023-02-15",
+        "expirationDate": "2024-02-15",
+        "usage": "Pain relief, fever reduction",
+        "price": 7.49,
+        "components": [
+            "Ibuprofen",
+            "Inactive ingredients"
+        ],
+        "quantity": 150,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Paracetamol",
+        "productionDate": "2023-03-10",
+        "expirationDate": "2024-03-10",
+        "usage": "Pain and fever relief",
+        "price": 4.99,
+        "components": [
+            "Paracetamol",
+            "Inactive ingredients"
+        ],
+        "quantity": 120,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Cetirizine",
+        "productionDate": "2023-11-20",
+        "expirationDate": "2024-11-20",
+        "usage": "Antihistamine",
+        "price": 8.99,
+        "components": [
+            "Cetirizine",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Ranitidine",
+        "productionDate": "2023-12-05",
+        "expirationDate": "2024-12-05",
+        "usage": "Acid reducer",
+        "price": 6.49,
+        "components": [
+            "Ranitidine",
+            "Inactive ingredients"
+        ],
+        "quantity": 90,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Omeprazole",
+        "productionDate": "2023-01-15",
+        "expirationDate": "2024-01-15",
+        "usage": "Acid reducer",
+        "price": 9.99,
+        "components": [
+            "Omeprazole",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Loratadine",
+        "productionDate": "2023-02-28",
+        "expirationDate": "2024-02-28",
+        "usage": "Antihistamine",
+        "price": 6.99,
+        "components": [
+            "Loratadine",
+            "Inactive ingredients"
+        ],
+        "quantity": 120,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Simvastatin",
+        "productionDate": "2023-03-20",
+        "expirationDate": "2024-03-20",
+        "usage": "Cholesterol-lowering medication",
+        "price": 11.49,
+        "components": [
+            "Simvastatin",
+            "Inactive ingredients"
+        ],
+        "quantity": 60,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Metformin",
+        "productionDate": "2023-04-05",
+        "expirationDate": "2024-04-05",
+        "usage": "Antidiabetic medication",
+        "price": 8.49,
+        "components": [
+            "Metformin",
+            "Inactive ingredients"
+        ],
+        "quantity": 100,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Amoxicillin",
+        "productionDate": "2023-05-10",
+        "expirationDate": "2024-05-10",
+        "usage": "Antibiotic",
+        "price": 12.99,
+        "components": [
+            "Amoxicillin",
+            "Inactive ingredients"
+        ],
+        "quantity": 90,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Hydrochlorothiazide",
+        "productionDate": "2023-06-25",
+        "expirationDate": "2024-06-25",
+        "usage": "Diuretic",
+        "price": 7.99,
+        "components": [
+            "Hydrochlorothiazide",
+            "Inactive ingredients"
+        ],
+        "quantity": 70,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Atorvastatin",
+        "productionDate": "2023-07-15",
+        "expirationDate": "2024-07-15",
+        "usage": "Cholesterol-lowering medication",
+        "price": 10.99,
+        "components": [
+            "Atorvastatin",
+            "Inactive ingredients"
+        ],
+        "quantity": 110,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Prednisone",
+        "productionDate": "2023-08-10",
+        "expirationDate": "2024-08-10",
+        "usage": "Corticosteroid",
+        "price": 8.99,
+        "components": [
+            "Prednisone",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Diazepam",
+        "productionDate": "2023-09-01",
+        "expirationDate": "2024-09-01",
+        "usage": "Anxiolytic, sedative",
+        "price": 14.49,
+        "components": [
+            "Diazepam",
+            "Inactive ingredients"
+        ],
+        "quantity": 50,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Fluoxetine",
+        "productionDate": "2023-10-20",
+        "expirationDate": "2024-10-20",
+        "usage": "Antidepressant",
+        "price": 9.49,
+        "components": [
+            "Fluoxetine",
+            "Inactive ingredients"
+        ],
+        "quantity": 100,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Levothyroxine",
+        "productionDate": "2023-11-15",
+        "expirationDate": "2024-11-15",
+        "usage": "Thyroid hormone replacement",
+        "price": 10.99,
+        "components": [
+            "Levothyroxine",
+            "Inactive ingredients"
+        ],
+        "quantity": 120,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Ciprofloxacin",
+        "productionDate": "2023-12-01",
+        "expirationDate": "2024-12-01",
+        "usage": "Antibiotic",
+        "price": 15.49,
+        "components": [
+            "Ciprofloxacin",
+            "Inactive ingredients"
+        ],
+        "quantity": 90,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Losartan",
+        "productionDate": "2024-01-10",
+        "expirationDate": "2025-01-10",
+        "usage": "Antihypertensive",
+        "price": 12.99,
+        "components": [
+            "Losartan",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Escitalopram",
+        "productionDate": "2024-02-25",
+        "expirationDate": "2025-02-25",
+        "usage": "Antidepressant",
+        "price": 11.99,
+        "components": [
+            "Escitalopram",
+            "Inactive ingredients"
+        ],
+        "quantity": 100,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Metoprolol",
+        "productionDate": "2024-03-15",
+        "expirationDate": "2025-03-15",
+        "usage": "Beta-blocker",
+        "price": 8.99,
+        "components": [
+            "Metoprolol",
+            "Inactive ingredients"
+        ],
+        "quantity": 110,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Gabapentin",
+        "productionDate": "2024-04-05",
+        "expirationDate": "2025-04-05",
+        "usage": "Anticonvulsant",
+        "price": 9.49,
+        "components": [
+            "Gabapentin",
+            "Inactive ingredients"
+        ],
+        "quantity": 70,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Amlodipine",
+        "productionDate": "2024-05-20",
+        "expirationDate": "2025-05-20",
+        "usage": "Calcium channel blocker",
+        "price": 14.99,
+        "components": [
+            "Amlodipine",
+            "Inactive ingredients"
+        ],
+        "quantity": 90,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Hydrocodone",
+        "productionDate": "2024-06-10",
+        "expirationDate": "2025-06-10",
+        "usage": "Opioid analgesic",
+        "price": 18.49,
+        "components": [
+            "Hydrocodone",
+            "Inactive ingredients"
+        ],
+        "quantity": 60,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Warfarin",
+        "productionDate": "2024-07-01",
+        "expirationDate": "2025-07-01",
+        "usage": "Anticoagulant",
+        "price": 13.99,
+        "components": [
+            "Warfarin",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Clonazepam",
+        "productionDate": "2024-08-15",
+        "expirationDate": "2025-08-15",
+        "usage": "Anxiolytic",
+        "price": 16.99,
+        "components": [
+            "Clonazepam",
+            "Inactive ingredients"
+        ],
+        "quantity": 50,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Doxycycline",
+        "productionDate": "2024-09-05",
+        "expirationDate": "2025-09-05",
+        "usage": "Antibiotic",
+        "price": 17.49,
+        "components": [
+            "Doxycycline",
+            "Inactive ingredients"
+        ],
+        "quantity": 70,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Venlafaxine",
+        "productionDate": "2024-10-20",
+        "expirationDate": "2025-10-20",
+        "usage": "Antidepressant",
+        "price": 15.99,
+        "components": [
+            "Venlafaxine",
+            "Inactive ingredients"
+        ],
+        "quantity": 90,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Methotrexate",
+        "productionDate": "2024-11-10",
+        "expirationDate": "2025-11-10",
+        "usage": "Immunosuppressive, chemotherapy",
+        "price": 22.99,
+        "components": [
+            "Methotrexate",
+            "Inactive ingredients"
+        ],
+        "quantity": 40,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Alprazolam",
+        "productionDate": "2024-12-01",
+        "expirationDate": "2025-12-01",
+        "usage": "Anxiolytic",
+        "price": 19.49,
+        "components": [
+            "Alprazolam",
+            "Inactive ingredients"
+        ],
+        "quantity": 60,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    },
+    {
+        "name": "Furosemide",
+        "productionDate": "2025-01-15",
+        "expirationDate": "2026-01-15",
+        "usage": "Diuretic",
+        "price": 14.99,
+        "components": [
+            "Furosemide",
+            "Inactive ingredients"
+        ],
+        "quantity": 80,
+        "stockstatus": "In Stock",
+        "status": "Valid"
+    }
+]

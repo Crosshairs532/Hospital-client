@@ -17,8 +17,13 @@ import Appointment from "../Pages/Appointment/Appointment";
 import Doctor from "../Pages/Doctor";
 import Checkout from "../Pages/Pharmacy/Checkout";
 import PaymentSuccess from "../Pages/Pharmacy/PaymentSuccess";
-
-
+import PharmacyDashboard from "../Pages/Dashboard/PharmacyDashboard";
+import Dashboard from '../Pages/Dashboard/Dashboard';
+import AddMedicine from '../Pages/Dashboard/AddMedicine';
+import UpdateMedicine from '../Pages/Dashboard/UpdateMedicine';
+import Expired from "../Pages/Dashboard/Expired";
+import Allorders from "../Pages/Dashboard/Allorders";
+import Medicinelist from "../Pages/Dashboard/Medicinelist";
 
 const router = createBrowserRouter([
     {
@@ -37,10 +42,10 @@ const router = createBrowserRouter([
                 element: <Login></Login>
             },
             {
-                path:'/orgLogin',
-                element:<OrgLogin></OrgLogin>
+                path: 'orgLogin',
+                element: <OrgLogin></OrgLogin>
             },
-            ,
+
             {
                 path: '/register',
                 element: <Register></Register>
@@ -49,7 +54,7 @@ const router = createBrowserRouter([
                 path: '/profile',
                 element: <PrivateRoute><Profile></Profile></PrivateRoute>
             },
-    
+
             {
                 path: '/appointment',
                 element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
@@ -78,8 +83,44 @@ const router = createBrowserRouter([
                 path:'/checkout/success',
                 element:<PaymentSuccess></PaymentSuccess>
             }
+
         ]
     },
+    {
+        path: '/pharmacy',
+        element: <PharmacyDashboard></PharmacyDashboard>,
+        children: [
+            {
+                path: 'dashboard',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: 'addmedicine',
+                element: <AddMedicine></AddMedicine>
+            }
+            ,
+            {
+                path: '/pharmacy/updatemedicine/:id',
+                element: <UpdateMedicine></UpdateMedicine>
+            }
+            ,
+            {
+                path: 'allexpired',
+                element: <Expired></Expired>
+            },
+            {
+                path: 'allorders',
+                element: <Allorders></Allorders>
+            },
+            {
+                path: 'allMedicine',
+                element: <Medicinelist></Medicinelist>
+            }
+
+
+        ]
+
+    }
 
 ])
 export default router;

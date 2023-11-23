@@ -2,7 +2,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import img3 from '../../assets/login.svg'
 import './Login.css'
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { AiOutlineMail } from 'react-icons/ai'
 import { BsFacebook, BsFillKeyFill } from 'react-icons/bs'
 import { FcGoogle } from 'react-icons/fc'
@@ -29,7 +29,8 @@ const Login = () => {
         signIn(email, password)
             .then(res => {
                 console.log(res);
-                goTo('/')})
+                goTo('/')
+            })
             .catch(er => console.log(er))
     }
 
@@ -52,6 +53,27 @@ const Login = () => {
     //         .catch()
     //     return;
     // }
+    const [status, setStatus] = useState('valid');
+    const [color, setColor] = useState('green-600')
+    const [Expiration_date, setExpire] = useState(new Date(2023, 10, 29))
+    useEffect(() => {
+        const today = new Date(2023, 10, 29);
+
+        const seven_days_before = new Date(Expiration_date.getTime() - 7 * 24 * 60 * 60 * 1000);
+        const seven_days_after = new Date(today.getTime() + 6 * 24 * 60 * 60 * 1000);
+        console.log(`Today:${today.getDate()}  <>   Expiration: ${Expiration_date.getDate()}  <>  seven_days_after: ${seven_days_after.getDate()}  <>  seven_days_before: ${seven_days_before.getDate()}`)
+        if ((Expiration_date.getDate() - today.getDate()) <= 0) {
+            console.log(Expiration_date.getDate() - today.getDate(), "helo");
+            setStatus("Expired")
+            setColor('red-400')
+        }
+        else if ((0 < (Expiration_date.getDate() - today.getDate())) && (Expiration_date.getDate() - today.getDate()) <= 6) {
+            console.log(typeof (Expiration_date.getDate() - today.getDate()), "helo");
+            setStatus(' expiration is near')
+            setColor('yellow-500')
+        }
+    }
+        , [Expiration_date])
 
 
 
@@ -61,14 +83,7 @@ const Login = () => {
                 alert('sign in')
             })
             .catch(er => console.log(er))
-
     }
-
-
-
-
-
-
 
     const handleForget = () => {
         const email = emailRef.current.value;
@@ -89,22 +104,23 @@ const Login = () => {
         <div>
             <div className="hero  min-h-screen">
                 <div className="hero-content flex-col lg:flex-row">
-                
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+
+                    <div className="card  flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                            <h1 className={` text-${color}`}> {status} </h1>
                             <h1 className="text-3xl text-center font-bold">Organization Login</h1>
                             <form onSubmit={handleSubmit}>
-                                <div class="form-control mt-5 ">
-                                <div >
-                                    <select  name="role" id="role" className=" input input-bordered w-full items-center gap-3" required>
-                                        <option>Select Role</option>
-                                        <option value='admin'>Admin</option>
-                                        <option value='doctor'>Doctor</option>
-                                        <option value='pharmacist'>Pharmacist</option>
-                                    </select>
-                                            
-                                </div>
-                                    
+                                <div className="form-control mt-5 ">
+                                    <div >
+                                        <select name="role" id="role" className=" input input-bordered w-full items-center gap-3" required>
+                                            <option>Select Role</option>
+                                            <option value='admin'>Admin</option>
+                                            <option value='doctor'>Doctor</option>
+                                            <option value='pharmacist'>Pharmacist</option>
+                                        </select>
+
+                                    </div>
+
                                 </div>
                                 <div className="form-control mt-2">
 
@@ -127,8 +143,8 @@ const Login = () => {
                                     <input className="btn btn-primary" type="submit" value="Login" />
                                 </div>
                             </form>
-                          
-                           
+
+
                         </div>
                     </div>
 
