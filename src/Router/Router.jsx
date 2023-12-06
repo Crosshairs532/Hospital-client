@@ -12,6 +12,8 @@ import Test from "../Pages/Test/Test";
 import Appointment_list from "../Pages/Components/Appointment_List/Appointment_list";
 import Appointment from "../Pages/Appointment/Appointment";
 import Doctor from "../Pages/Doctor";
+import Checkout from "../Pages/Pharmacy/Checkout";
+import PaymentSuccess from "../Pages/Pharmacy/PaymentSuccess";
 import PharmacyDashboard from "../Pages/Dashboard/PharmacyDashboard";
 import Dashboard from '../Pages/Dashboard/Dashboard';
 import AddMedicine from '../Pages/Dashboard/AddMedicine';
@@ -92,6 +94,14 @@ const router = createBrowserRouter([
                 path: '/userDashboard/allReports',
                 element: <PrivateRoute><Allreports></Allreports></PrivateRoute>
             },
+            {
+                path:'/checkout',
+                element:<Checkout></Checkout>
+            },
+            {
+                path:'/checkout/success',
+                element:<PaymentSuccess></PaymentSuccess>
+            }
 
         ]
     },
