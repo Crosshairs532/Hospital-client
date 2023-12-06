@@ -22,7 +22,6 @@ const Update = ({ appointments }) => {
         Pemail,
         ampm, appointment } = appointments
     const [appointmentTime, setAppointmentTime] = useState(new Date());
-    // const [appTime, setAppTime] = useState(appointment)
     const [value, onChange] = useState(ATime);
     const { user } = useContext(AuthContext);
     const handleUpdate = (e) => {
@@ -77,8 +76,6 @@ const Update = ({ appointments }) => {
 
                 }
             })
-
-
     }
 
     return (

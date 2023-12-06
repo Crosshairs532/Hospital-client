@@ -5,8 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'Nunito': ['Nunito', 'sans-serif']
+    },
     extend: {},
   },
   plugins: [require("daisyui")],
-}
+};
 

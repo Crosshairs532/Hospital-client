@@ -3,17 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Authprovider/Authprovider";
 import Swal from "sweetalert2";
-import Lottie from "lottie-react";
-import logo from '../../../../public/logo.json'
+import { GiHospitalCross } from "react-icons/gi";
+import logo from '../../../assets/logo.png'
 import { Triangle } from "react-loader-spinner";
 const Headers = () => {
     const { user, logout, loading } = useContext(AuthContext)
     const [CUser, setUser] = useState([]);
-
     console.log(user);
     console.log(CUser);
     const goTo = useNavigate();
-
     useEffect(() => {
         fetch('http://localhost:3000/user')
             .then(res => res.json())
@@ -25,7 +23,7 @@ const Headers = () => {
                     setUser(Cuser)
             })
     }, [user?.email])
-    // console.log(CUser[0]?.name, "headdddd");
+
     console.log(user, CUser);
     const handleLogout = () => {
         logout()
@@ -45,18 +43,18 @@ const Headers = () => {
     }
     const nav_items =
         <>
-            <li className=" text-xl font-bold"><NavLink to='/'>Home</NavLink></li>
-            <li className=" text-xl font-bold"><NavLink to='/doctors'>Doctors</NavLink></li>
-            <li className=" text-xl font-bold"><NavLink to='/appointment'>Appointment</NavLink></li>
-            {/* <li className=" text-xl font-bold"><NavLink to='/contact'>Contact Us</NavLink></li> */}
-            <li className=" text-xl font-bold"><NavLink to='/admission'>Admission form</NavLink></li>
-            <li className=" text-xl font-bold"><NavLink to='/test'>Schedule for Test</NavLink></li>
-            <li className=" text-xl font-bold"><NavLink to='/pharmacy'>Pharmacy</NavLink></li>
+            <li className=" text-xl font-Nunito font-semibold"><NavLink to='/'>Home</NavLink></li>
+            <li className=" text-xl font-Nunito font-semibold"><NavLink to='/doctors'>Doctors</NavLink></li>
+            {/* <li className=" text-xl font-Nunito font-semibold"><NavLink to='/appointment'>Appointment</NavLink></li> */}
+            {/* <li className=" text-xl font-Nunito font-semibold"><NavLink to='/admission'>Admission form</NavLink></li> */}
+            {/* <li className=" text-xl font-Nunito font-semibold"><NavLink to='/test'>Schedule for Test</NavLink></li> */}
+            <li className=" text-xl font-Nunito font-semibold"><NavLink to='/pharmacy/dashboard'>Pharmacy</NavLink></li>
+            {/* <li className=" text-xl font-Nunito font-semibold"><NavLink to='/allTest'>Tests</NavLink></li>
+            <li className=" text-xl font-Nunito font-semibold"><NavLink to='/allReports'>reports</NavLink></li> */}
 
 
 
         </>
-
 
     if (loading) {
         return <div className=" flex h-[100vh] justify-center items-center">
@@ -73,8 +71,8 @@ const Headers = () => {
         </div>
     }
     return (
-        <div>
-            <div className="navbar bg-green-600">
+        <div className=" bg-green-600 ">
+            <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -84,15 +82,14 @@ const Headers = () => {
                             {
                                 nav_items
                             }
-
                         </ul>
                     </div>
-                    <div className=' w-[30%] h-20'>
-                        <Lottie className='w-full h-full' animationData={logo} loop={true}></Lottie>
+                    <div className=''>
+                        <GiHospitalCross color="white" size={50} />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu text-slate-100 menu-horizontal px-1">
                         {
                             nav_items
                         }
@@ -105,8 +102,6 @@ const Headers = () => {
                             <Link to='/login' className="btn btn-outline btn-error">Login </Link>
                             <Link to='/register' className="btn btn-outline btn-error">Register Now</Link>
                         </> :
-
-
                         <>
                             <div className="dropdown dropdown-end">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -122,19 +117,14 @@ const Headers = () => {
 
                                         </a>
                                     </li>
-                                    <li><Link to='/profile'>Profile</Link></li>
-                                    <li>                    <button onClick={handleLogout} >Logout</button>
+                                    <li><Link to='/userDashboard/profile'>DashBoard</Link></li>
+                                    <li>
+                                        <button onClick={handleLogout} >Logout</button>
                                     </li>
-                                    <li><Link>patient diagnosis report</Link></li>
-                                    <li><Link to='/applist'>Appointment List</Link></li>
-
                                 </ul>
                             </div>
                         </>
                     }
-
-
-
                 </div>
             </div>
 

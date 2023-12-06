@@ -19,7 +19,7 @@ const Appointment_list = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className="sticky top-0 border-2 backdrop-blur-sm bg-[#3a6d1e98] font-Nunito text-slate-200  z-10">
                         <tr>
                             <th></th>
                             <th>Sl.No</th>

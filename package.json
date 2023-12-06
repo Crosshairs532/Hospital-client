@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.8.4",
+    "@zoomus/websdk": "^2.18.2",
     "axios": "^1.6.2",
     "firebase": "^10.5.2",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "lottie-web": "^5.12.2",

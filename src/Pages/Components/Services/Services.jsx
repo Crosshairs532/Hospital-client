@@ -4,7 +4,7 @@ import { FaHeartbeat, FaStethoscope } from 'react-icons/fa'
 import { TbDentalBroken } from 'react-icons/tb'
 const Services = () => {
     return (
-        <div className=" my-28 ">
+        <div className=" my-28  min-h-screen container mx-auto">
             <h1 className=" text-5xl text-center font-bold ">Our Services</h1>
             <div className="  grid lg:grid-cols-3 gap-3 md:grid-cols-2 grid-cols-1">
                 <div className=" flex items-center gap-3">

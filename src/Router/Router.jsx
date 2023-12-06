@@ -3,13 +3,10 @@ import Mainlayout from "../Layouts/Mainlayout";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import OrgLogin from "../Pages/Login/OrgLogin";
-import DoctorLogin from '../Pages/Doctor/Login/DoctorLogin';
-import DoctorHome from '../Pages/Doctor/Home/DoctorHome';
+
 import Register from "../Pages/Register/Register";
 import Profile from "../Pages/Components/Profile/Profile";
 import PrivateRoute from "../PrivateRoute";
-import AdminLogin from "../Pages/Admin/Login/AdminLogin";
-import AdminHome from "../Pages/Admin/Home/AdminHome";
 import Admission from "../Pages/Admission";
 import Test from "../Pages/Test/Test";
 import Appointment_list from "../Pages/Components/Appointment_List/Appointment_list";
@@ -22,6 +19,12 @@ import UpdateMedicine from '../Pages/Dashboard/UpdateMedicine';
 import Expired from "../Pages/Dashboard/Expired";
 import Allorders from "../Pages/Dashboard/Allorders";
 import Medicinelist from "../Pages/Dashboard/Medicinelist";
+// import PDF from "../Pages/PDF";
+import Alltest from "../Pages/Components/Alltest/Alltest";
+import Allreports from "../Pages/Components/ALLreports/Allreports";
+// import Try from "../Pages/Components/ALLreports/Allreports";
+import Stock from "../Pages/Dashboard/Stock";
+import UserDashboard from "../Pages/UserDashboard/UserDashboard";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +38,7 @@ const router = createBrowserRouter([
                 element: <Home></Home>
 
             },
+
             {
                 path: '/login',
                 element: <Login></Login>
@@ -48,30 +52,45 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
-            {
-                path: '/profile',
-                element: <PrivateRoute><Profile></Profile></PrivateRoute>
-            },
 
-            {
-                path: '/appointment',
-                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
-            },
             {
                 path: '/doctors',
                 element: <Doctor></Doctor>
             },
+
+        ]
+    },
+    {
+        path: '/userDashboard',
+        element: <UserDashboard></UserDashboard>,
+        children: [
             {
-                path: '/admission',
+                path: '/userDashboard/profile',
+                element: <PrivateRoute><Profile></Profile></PrivateRoute>
+            },
+            {
+                path: '/userDashboard/allTest',
+                element: <PrivateRoute><Alltest></Alltest></PrivateRoute>
+            },
+            {
+                path: '/userDashboard/applist',
+                element: <PrivateRoute><Appointment_list></Appointment_list></PrivateRoute>
+            },
+            {
+                path: '/userDashboard/admission',
                 element: <PrivateRoute><Admission></Admission></PrivateRoute>
             },
             {
-                path: '/test',
+                path: '/userDashboard/test',
                 element: <PrivateRoute><Test></Test></PrivateRoute>
             },
             {
-                path: '/applist',
-                element: <PrivateRoute><Appointment_list></Appointment_list></PrivateRoute>
+                path: '/userDashboard/appointment',
+                element: <PrivateRoute><Appointment></Appointment></PrivateRoute>
+            },
+            {
+                path: '/userDashboard/allReports',
+                element: <PrivateRoute><Allreports></Allreports></PrivateRoute>
             },
 
         ]
@@ -80,6 +99,8 @@ const router = createBrowserRouter([
         path: '/pharmacy',
         element: <PharmacyDashboard></PharmacyDashboard>,
         children: [
+
+
             {
                 path: 'dashboard',
                 element: <Dashboard></Dashboard>
@@ -105,12 +126,12 @@ const router = createBrowserRouter([
             {
                 path: 'allMedicine',
                 element: <Medicinelist></Medicinelist>
+            },
+            {
+                path: 'stock',
+                element: <Stock></Stock>
             }
-
-
         ]
-
     }
-
 ])
 export default router;

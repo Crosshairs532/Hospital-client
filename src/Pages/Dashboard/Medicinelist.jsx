@@ -1,19 +1,30 @@
 /* eslint-disable no-unused-vars */
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Triangle } from "react-loader-spinner";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useLoading from "../../Hooks/useLoading";
 
 const Medicinelist = () => {
+    const [currentPage, setCurrentPage] = useState(0)
+    const itemsPerPage = 8;
+    const Loading = useLoading();
 
-    const { data, isLoading, error, refetch } = useQuery(
+    const { data: medicinesData, isError, isFetched: pageisFetched } = useQuery({
+        queryKey: ['medicinesList',],
+        queryFn: async () => {
+            const result = await axios.get('http://localhost:3000/pagination/medicine');
+            return result.data;
+        }
+    })
+    const { data, isLoading, error, refetch, isFetched } = useQuery(
         {
-            queryKey: ['medicines'],
+            queryKey: ['medicines', currentPage],
             queryFn: async () => {
                 try {
-                    const res = await axios.get('http://localhost:3000/medicine');
+                    const res = await axios.get(`http://localhost:3000/medicine?page=${currentPage}&size=${itemsPerPage}`);
                     return res.data;
                 } catch (error) {
                     console.error('Error fetching data:', error);
@@ -22,12 +33,8 @@ const Medicinelist = () => {
             }
         }
     );
-    if (isLoading) {
-        return <>
-            <div className="  h-[70vh] flex justify-center items-center">
-                <Triangle />
-            </div>
-        </>
+    if (!isFetched || !pageisFetched) {
+        return Loading
     }
     const handleDelete = (id) => {
         console.log(id);
@@ -55,7 +62,24 @@ const Medicinelist = () => {
 
             }
         });
+    }
 
+    if (!isFetched || !medicinesData) {
+        return Loading
+    }
+    const numberOfPages = Math.ceil((medicinesData.count) / itemsPerPage)
+    const pages = [...Array(numberOfPages).keys()];
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+            console.log(currentPage);
+        }
+    }
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+            console.log(currentPage);
+        }
     }
 
     return (
@@ -99,6 +123,17 @@ const Medicinelist = () => {
 
                         </tbody>
                     </table>
+                </div>
+                <div className=' flex items-center gap-2 justify-center pt-10'>
+                    <button onClick={handlePrevPage} className="join-item btn">«</button>
+                    <div>
+                        {
+                            pages.map(i => (
+                                <button key={i} onClick={() => setCurrentPage(i)} className={`${currentPage == i ? ' bg-green-700' : ''} btn`}>{i + 1}</button>)
+                            )
+                        }
+                    </div>
+                    <button onClick={handleNextPage} className="join-item btn">»</button>
                 </div>
             </div >
 

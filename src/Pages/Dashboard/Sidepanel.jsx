@@ -10,6 +10,7 @@ const Sidepanel = () => {
                 <li><NavLink to='allexpired'>Expiring List</NavLink></li>
                 <li><NavLink to='allorders'>Ordered List</NavLink></li>
                 <li><NavLink to='allmedicine'>Medicine List </NavLink></li>
+                <li><NavLink to='stock'>Stock Status</NavLink></li>
                 <div className="divider"></div>
                 <li><NavLink to='/'>Home</NavLink></li>
             </ul>

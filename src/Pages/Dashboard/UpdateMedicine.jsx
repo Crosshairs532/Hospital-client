@@ -1,18 +1,23 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router-dom";
 import axios from 'axios'
 import { useQuery } from "@tanstack/react-query";
 import { useForm } from 'react-hook-form'
 import Swal from 'sweetalert2';
 import { Triangle } from "react-loader-spinner";
+import useLoading from "../../Hooks/useLoading";
 const UpdateMedicine = () => {
+    const Loading = useLoading();
     const param = useParams();
+    console.log(param);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { data: Product = [], isLoading, error, refetch } = useQuery(
+    const { data: Product = [], isFetched, error, refetch } = useQuery(
         {
             queryKey: ['medicines_update', param.id,],
             queryFn: async () => {
                 try {
-                    const res = await axios.get(`http://localhost:3000/medicine?medicine_id=${param.id}`);
+                    const res = await axios.get(`http://localhost:3000/update/medicine?medicine_id=${param.id}`);
+                    console.log(res.data);
                     return res.data;
                 } catch (error) {
                     console.error('Error fetching data:', error);
@@ -21,12 +26,8 @@ const UpdateMedicine = () => {
             }
         }
     );
-    if (isLoading) {
-        return <>
-            <div className="  h-[70vh] flex justify-center items-center">
-                <Triangle />
-            </div>
-        </>
+    if (!isFetched) {
+        return Loading
     }
     const { name, quantity, price, expirationDate, productionDate, usage, stockStatus, status, _id } = Product[0];
     console.log(Product[0], "update dafnajfjaffa");
@@ -54,10 +55,6 @@ const UpdateMedicine = () => {
             });
             refetch()
         }
-        // }
-        // catch (error) {
-        //     console.log(error.message, 'hh"');
-        // }
 
     }
 

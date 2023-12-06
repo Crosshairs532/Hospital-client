@@ -42,8 +42,6 @@ const Authprovider = ({ children }) => {
         })
         return () => unSubscriber();
     }, [])
-
-
     const authInfo = { signIn, signInWithfacebook, signInWithgoogle, logout, user, createUser, loading, setLoading }
     return (
         <div>

@@ -3,25 +3,18 @@ import { useContext } from "react";
 import { AuthContext } from "./Authprovider/Authprovider";
 import { Navigate } from "react-router-dom";
 import { Triangle } from "react-loader-spinner";
+import useLoading from "./Hooks/useLoading";
 
 
 const PrivateRoute = ({ children }) => {
     const { loading, user } = useContext(AuthContext)
+    const Loading = useLoading();
     if (loading) {
-        return <Triangle
-            height="80"
-            width="80"
-            color="#4fa94d"
-            ariaLabel="triangle-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true}
-        />
+        return Loading
     }
     if (user) {
         return children;
     }
-
     <Navigate to='/' replace></Navigate>
 };
 

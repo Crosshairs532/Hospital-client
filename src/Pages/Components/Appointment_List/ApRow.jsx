@@ -56,7 +56,8 @@ const ApRow = ({ i, sl, setAppointment, appointments }) => {
             <td>{Ddpt}</td>
             <td>{appointment}</td>
             <td>{status}</td>
-            <td className=" mt-3 flex gap-2 items-center justify-center"><button className=" btn btn-outline btn-xs text-cyan-600 outline-cyan-600">View Details</button>
+            <td className=" mt-3 flex gap-2 items-center justify-center">
+                <button className=" btn btn-outline btn-xs text-cyan-600 outline-cyan-600">View Details</button>
                 <Update appointments={i}></Update>
             </td>
 

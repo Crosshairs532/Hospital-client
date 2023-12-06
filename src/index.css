@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.foo {
+    background-image: url('../src/assets/footer_img.jpeg'), linear-gradient(to right, rgba(3, 45, 3, 0.849), rgb(1, 42, 1));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: overlay;
+}
